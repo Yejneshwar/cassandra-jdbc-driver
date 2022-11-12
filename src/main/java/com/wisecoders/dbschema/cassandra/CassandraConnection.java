@@ -100,7 +100,12 @@ public class CassandraConnection implements Connection {
 
     @Override
     public Statement createStatement(int resultSetType, int resultSetConcurrency) throws SQLException {
-        throw new SQLFeatureNotSupportedException();
+        checkClosed();
+        try {
+            return new CassandraStatement(this);
+        } catch (Throwable t) {
+            throw new SQLException(t.getMessage(), t);
+        }
     }
 
     @Override

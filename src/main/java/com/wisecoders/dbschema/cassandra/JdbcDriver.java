@@ -34,13 +34,13 @@ public class JdbcDriver implements Driver {
     static {
         try {
             DriverManager.registerDriver( new JdbcDriver());
-            LOGGER.setLevel(Level.ALL);
-            final ConsoleHandler consoleHandler = new ConsoleHandler();
-            consoleHandler.setLevel(Level.ALL);
-            consoleHandler.setFormatter(new SimpleFormatter());
-            LOGGER.addHandler(consoleHandler);
+            LOGGER.setLevel(Level.OFF);
+            // final ConsoleHandler consoleHandler = new ConsoleHandler();
+            // consoleHandler.setLevel(Level.ALL);
+            // consoleHandler.setFormatter(new SimpleFormatter());
+            // LOGGER.addHandler(consoleHandler);
 
-            final FileHandler fileHandler = new FileHandler(System.getProperty("user.home") + "/.DbSchema/logs/CassandraJdbcDriver.log");
+            final FileHandler fileHandler = new FileHandler(System.getProperty("user.dir") + "/logs/CassandraJdbcDriver.log");
             fileHandler.setFormatter( new SimpleFormatter());
             fileHandler.setLevel(Level.ALL);
             LOGGER.addHandler(fileHandler);

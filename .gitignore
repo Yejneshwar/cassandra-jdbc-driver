@@ -10,3 +10,4 @@ gradlew.bat
 gradle.properties
 resources/retrace
 .DS_Store
+bin
